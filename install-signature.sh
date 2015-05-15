@@ -14,6 +14,11 @@ if [ -t 0 ]; then
 	exit 1
 fi
 
+if [ -z "${1:-}" ]; then
+	>&2 echo "No signature name passed."
+	exit 1
+fi
+
 /usr/libexec/PlistBuddy -c "Add :0 dict" "$signaturesDirectory/AllSignatures.plist"
 /usr/libexec/PlistBuddy -c "Add :0:SignatureIsRich bool true" "$signaturesDirectory/AllSignatures.plist"
 /usr/libexec/PlistBuddy -c "Add :0:SignatureName string '$1'" "$signaturesDirectory/AllSignatures.plist"
