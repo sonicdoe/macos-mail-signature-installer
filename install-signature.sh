@@ -2,10 +2,25 @@
 set -euo pipefail
 
 signatureUniqueId="$(uuidgen)"
-signaturesDirectory="$HOME/Library/Mail/V2/MailData/Signatures"
+signaturesDirectory="$HOME/Library/Mobile Documents/com~apple~Mail/Data/MailData/Signatures"
 
-if [ ! -f "$signaturesDirectory/AllSignatures.plist" ]; then
-	>&2 echo "Could not find AllSignatures.plist in $signaturesDirectory."
+# Not using iCloud Drive but iCloud.
+if [ ! -f "$signaturesDirectory/ubiquitous_AllSignatures.plist" ]; then
+	signaturesDirectory="$HOME/Library/Mobile Documents/Mail/Data/MailData/Signatures"
+fi
+
+allSignaturesPlist="$signaturesDirectory/ubiquitous_AllSignatures.plist"
+mailsignatureFile="$signaturesDirectory/ubiquitous_$signatureUniqueId.mailsignature"
+
+# Not using iCloud.
+if [ ! -f "$signaturesDirectory/ubiquitous_AllSignatures.plist" ]; then
+	signaturesDirectory="$HOME/Library/Mail/V2/MailData/Signatures"
+	allSignaturesPlist="$signaturesDirectory/AllSignatures.plist"
+	mailsignatureFile="$signaturesDirectory/$signatureUniqueId.mailsignature"
+fi
+
+if [ ! -f "$allSignaturesPlist" ]; then
+	>&2 echo "Could not find $allSignaturesPlist."
 	exit 1
 fi
 
@@ -19,12 +34,12 @@ if [ -z "${1:-}" ]; then
 	exit 1
 fi
 
-/usr/libexec/PlistBuddy -c "Add :0 dict" "$signaturesDirectory/AllSignatures.plist"
-/usr/libexec/PlistBuddy -c "Add :0:SignatureIsRich bool true" "$signaturesDirectory/AllSignatures.plist"
-/usr/libexec/PlistBuddy -c "Add :0:SignatureName string '$1'" "$signaturesDirectory/AllSignatures.plist"
-/usr/libexec/PlistBuddy -c "Add :0:SignatureUniqueId string '$signatureUniqueId'" "$signaturesDirectory/AllSignatures.plist"
+/usr/libexec/PlistBuddy -c "Add :0 dict" "$allSignaturesPlist"
+/usr/libexec/PlistBuddy -c "Add :0:SignatureIsRich bool true" "$allSignaturesPlist"
+/usr/libexec/PlistBuddy -c "Add :0:SignatureName string '$1'" "$allSignaturesPlist"
+/usr/libexec/PlistBuddy -c "Add :0:SignatureUniqueId string '$signatureUniqueId'" "$allSignaturesPlist"
 
-cat <<EOF > "$signaturesDirectory/$signatureUniqueId.mailsignature"
+cat <<EOF > "$mailsignatureFile"
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/html;
 	charset=utf-8
@@ -33,6 +48,6 @@ Mime-Version: 1.0 (Mac OS X Mail 8.2 \(2098\))
 
 EOF
 
-cat | perl -MMIME::QuotedPrint -pe '$_=MIME::QuotedPrint::encode($_)' >> "$signaturesDirectory/$signatureUniqueId.mailsignature"
+cat | perl -MMIME::QuotedPrint -pe '$_=MIME::QuotedPrint::encode($_)' >> "$mailsignatureFile"
 
 echo "Installed “$1” signature with ID $signatureUniqueId."
