@@ -9,6 +9,11 @@ if [ ! -f "$signaturesDirectory/AllSignatures.plist" ]; then
 	exit 1
 fi
 
+if [ -t 0 ]; then
+	>&2 echo "stdin seems to be empty."
+	exit 1
+fi
+
 /usr/libexec/PlistBuddy -c "Add :0 dict" "$signaturesDirectory/AllSignatures.plist"
 /usr/libexec/PlistBuddy -c "Add :0:SignatureIsRich bool true" "$signaturesDirectory/AllSignatures.plist"
 /usr/libexec/PlistBuddy -c "Add :0:SignatureName string '$1'" "$signaturesDirectory/AllSignatures.plist"
