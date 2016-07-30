@@ -2,19 +2,13 @@
 set -euo pipefail
 
 signatureUniqueId="$(uuidgen)"
-signaturesDirectory="$HOME/Library/Mobile Documents/com~apple~Mail/Data/MailData/Signatures"
-
-# Not using iCloud Drive but iCloud.
-if [ ! -f "$signaturesDirectory/ubiquitous_AllSignatures.plist" ]; then
-	signaturesDirectory="$HOME/Library/Mobile Documents/Mail/Data/MailData/Signatures"
-fi
-
+signaturesDirectory="$HOME/Library/Mobile Documents/com~apple~mail/Data/V3/MailData/Signatures"
 allSignaturesPlist="$signaturesDirectory/ubiquitous_AllSignatures.plist"
 mailsignatureFile="$signaturesDirectory/ubiquitous_$signatureUniqueId.mailsignature"
 
-# Not using iCloud.
+# Not using iCloud Drive.
 if [ ! -f "$signaturesDirectory/ubiquitous_AllSignatures.plist" ]; then
-	signaturesDirectory="$HOME/Library/Mail/V2/MailData/Signatures"
+	signaturesDirectory="$HOME/Library/Mail/V3/MailData/Signatures"
 	allSignaturesPlist="$signaturesDirectory/AllSignatures.plist"
 	mailsignatureFile="$signaturesDirectory/$signatureUniqueId.mailsignature"
 fi
@@ -44,7 +38,7 @@ Content-Transfer-Encoding: quoted-printable
 Content-Type: text/html;
 	charset=utf-8
 Message-Id: <$(uuidgen)>
-Mime-Version: 1.0 (Mac OS X Mail 8.2 \(2098\))
+Mime-Version: 1.0 (Mac OS X Mail 9.3 \(3124\))
 
 EOF
 
