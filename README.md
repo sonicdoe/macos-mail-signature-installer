@@ -1,6 +1,6 @@
-# OS X Mail Signature Installer
+# macOS Mail Signature Installer
 
-Easily install HTML signatures in OS X’s Mail application.
+Easily install HTML signatures in macOS’s Mail application.
 
 ## Usage
 
