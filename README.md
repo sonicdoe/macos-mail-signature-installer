@@ -1,6 +1,6 @@
-# OS X Mail Signature Installer
+# macOS Mail Signature Installer
 
-Easily install HTML signatures in OS X’s Mail application.
+Easily install HTML signatures in macOS’s Mail application.
 
 ## Usage
 
@@ -12,8 +12,8 @@ $ cat my-signature.html | ./install-signature.sh "My Signature"
 
 ## Acknowledgments
 
-Thanks to [@coneybeare](https://github.com/coneybeare) for [his tutorial on making an HTML signature in Apple Mail](http://matt.coneybeare.me/how-to-make-an-html-signature-in-apple-mail-for-el-capitan-os-x-10-dot-11/).
+Thanks to [@coneybeare](https://github.com/coneybeare) for [his tutorial on making an HTML signature in Apple Mail](http://matt.coneybeare.me/how-to-make-an-html-signature-in-apple-mail-for-sierra-os-x-10-dot-12/).
 
 ## License
 
-`osx-mail-signature-installer` is licensed under the BSD 2-clause license. See [LICENSE](./LICENSE) for the full license.
+`macos-mail-signature-installer` is licensed under the BSD 2-clause license. See [LICENSE](./LICENSE) for the full license.
