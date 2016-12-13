@@ -2,13 +2,13 @@
 set -euo pipefail
 
 signatureUniqueId="$(uuidgen)"
-signaturesDirectory="$HOME/Library/Mobile Documents/com~apple~mail/Data/V3/MailData/Signatures"
-allSignaturesPlist="$signaturesDirectory/ubiquitous_AllSignatures.plist"
-mailsignatureFile="$signaturesDirectory/ubiquitous_$signatureUniqueId.mailsignature"
+signaturesDirectory="$HOME/Library/Mobile Documents/com~apple~mail/Data/V4/Signatures"
+allSignaturesPlist="$signaturesDirectory/AllSignatures.plist"
+mailsignatureFile="$signaturesDirectory/$signatureUniqueId.mailsignature"
 
 # Not using iCloud Drive.
-if [ ! -f "$signaturesDirectory/ubiquitous_AllSignatures.plist" ]; then
-	signaturesDirectory="$HOME/Library/Mail/V3/MailData/Signatures"
+if [ ! -f "$signaturesDirectory/AllSignatures.plist" ]; then
+	signaturesDirectory="$HOME/Library/Mail/V4/MailData/Signatures"
 	allSignaturesPlist="$signaturesDirectory/AllSignatures.plist"
 	mailsignatureFile="$signaturesDirectory/$signatureUniqueId.mailsignature"
 fi
