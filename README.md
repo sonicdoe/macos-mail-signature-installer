@@ -16,4 +16,4 @@ Thanks to [@coneybeare](https://github.com/coneybeare) for [his tutorial on maki
 
 ## License
 
-`osx-mail-signature-installer` is licensed under the BSD 2-clause license. See [LICENSE](./LICENSE) for the full license.
+`macos-mail-signature-installer` is licensed under the BSD 2-clause license. See [LICENSE](./LICENSE) for the full license.
