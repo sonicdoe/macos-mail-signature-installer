@@ -38,7 +38,7 @@ Content-Transfer-Encoding: quoted-printable
 Content-Type: text/html;
 	charset=utf-8
 Message-Id: <$(uuidgen)>
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.1\))
+Mime-Version: 1.0 (Mac OS X Mail 12.0 \(3445.100.39\))
 
 EOF
 
