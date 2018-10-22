@@ -8,7 +8,7 @@ mailsignatureFile="$signaturesDirectory/$signatureUniqueId.mailsignature"
 
 # Not using iCloud Drive.
 if [ ! -f "$signaturesDirectory/AllSignatures.plist" ]; then
-	signaturesDirectory="$HOME/Library/Mail/V4/MailData/Signatures"
+	signaturesDirectory="$HOME/Library/Mail/V6/MailData/Signatures"
 	allSignaturesPlist="$signaturesDirectory/AllSignatures.plist"
 	mailsignatureFile="$signaturesDirectory/$signatureUniqueId.mailsignature"
 fi
@@ -38,7 +38,7 @@ Content-Transfer-Encoding: quoted-printable
 Content-Type: text/html;
 	charset=utf-8
 Message-Id: <$(uuidgen)>
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.1\))
+Mime-Version: 1.0 (Mac OS X Mail 12.0 \(3445.100.39\))
 
 EOF
 
