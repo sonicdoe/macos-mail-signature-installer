@@ -12,7 +12,7 @@ $ cat my-signature.html | ./install-signature.sh "My Signature"
 
 ## Acknowledgments
 
-Thanks to [@coneybeare](https://github.com/coneybeare) for [his tutorial on making an HTML signature in Apple Mail](http://matt.coneybeare.me/how-to-make-an-html-signature-in-apple-mail-for-high-sierra-os-x-10-dot-13/).
+Thanks to [@coneybeare](https://github.com/coneybeare) for [his tutorial on making an HTML signature in Apple Mail](http://matt.coneybeare.me/how-to-make-an-html-signature-in-apple-mail-for-mojave-os-x-10-dot-14/).
 
 ## License
 
