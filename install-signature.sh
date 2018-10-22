@@ -8,7 +8,7 @@ mailsignatureFile="$signaturesDirectory/$signatureUniqueId.mailsignature"
 
 # Not using iCloud Drive.
 if [ ! -f "$signaturesDirectory/AllSignatures.plist" ]; then
-	signaturesDirectory="$HOME/Library/Mail/V4/MailData/Signatures"
+	signaturesDirectory="$HOME/Library/Mail/V6/MailData/Signatures"
 	allSignaturesPlist="$signaturesDirectory/AllSignatures.plist"
 	mailsignatureFile="$signaturesDirectory/$signatureUniqueId.mailsignature"
 fi
